@@ -61,7 +61,12 @@ plt.ylabel("Diamètre (cm)")
 plt.xticks([1], ["Échantillon extrait au hasard"])
 plt.show()
 ```
+
 ### Graphiques obtenus :
+
+![Distribution des diamètres des pommes](distribution_des_diametres_des_pommes.jpeg)
+
+![Diagramme en boîte des diamètres des pommes](diagramme_en_boite_des_diametres_des_pommes.jpeg)
 
 ---
 
