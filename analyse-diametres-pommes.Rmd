@@ -1,0 +1,68 @@
+
+Contrôle Qualité par Test Statistique
+
+Saisie des données
+
+```{r}
+# Données
+diametres <- c(9.35, 10.14, 11.31, 8.97, 8.51, 9.92, 9.43, 10.81)
+```
+
+Analyse exploratoire des données
+
+Statistiques descriptives
+
+```{r}
+# Moyenne, médiane, etc.
+summary(diametres)
+# Écart-type
+sd(diametres)
+# Variance
+var(diametres)
+# Étendue
+range(diametres)
+diff(range(diametres))
+```
+
+Visualisations
+
+Boxplot
+
+```{r}
+boxplot(diametres, 
+        main = "Boxplot des diamètres",
+        ylab = "Diamètre (cm)",
+        col = "lightblue")
+```
+
+Histogramme
+
+```{r}
+hist(diametres, 
+     main = "Histogramme des diamètres",
+     xlab = "Diamètre (cm)",
+     col = "lightgreen",
+     breaks = 5)
+```
+
+QQ-plot (pour vérifier la normalité)
+
+```{r}
+qqnorm(diametres)
+qqline(diametres, col = "red", lwd = 2)
+```
+
+Vérification de la normalité (test de Shapiro-Wilk)
+
+```{r}
+shapiro.test(diametres)
+```
+
+Test de Student bilatéral
+
+```{r}
+t.test(diametres, mu = 10, alternative = "two.sided", conf.level = 0.99)
+```
+
+L’échantillon présente une moyenne de 9,805 cm, proche de la cible contractuelle (10 cm). Le test de normalité (Shapiro‑Wilk, p = 0,9286) valide l’usage du test de Student. Le test bilatéral donne une p‑value de 0,5739, bien supérieure au seuil de 1 %. L’intervalle de confiance à 99 % [8,65 ; 10,96] inclut 10 cm.
+Conclusion : le lot est conforme au cahier des charges.
